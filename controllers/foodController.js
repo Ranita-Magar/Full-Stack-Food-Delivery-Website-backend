@@ -1,5 +1,6 @@
 import foodModel from "../models/foodModel.js";
 import fs from "fs"; //fs= file system ; which is pre-built in node js
+import multer from "multer";
 
 // add food item
 
@@ -40,7 +41,7 @@ const listFood = async (req, res) => {
 const removeFood = async (req, res) => {
   try {
     const food = await foodModel.findById(req.body.id); // used to find foodModel using id
-    fs.unlink(`uploads/${food.image}`,()=>{}); //delete img from folder
+    fs.unlink(`uploads/${food.image}`, () => {}); //delete img from folder
 
     await foodModel.findByIdAndDelete(req.body.id);
     res.json({ success: true, message: "Food Removed" });
