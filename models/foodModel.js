@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+
 //create schema describing FoodModel properties
 
 const foodSchema = new mongoose.Schema({
